@@ -1,0 +1,33 @@
+# Step 1: Navigate to page
+browser.get("http://www.gmail.com")
+
+# Fetch username, password input boxes and submit button
+# This time I'm now testing if the elements were found.
+# See the previous exmaples to see how to do that.
+username = browser.find_element_by_id( "email" )
+password = browser.find_element_by_id( "password" )
+submit   = browser.find_element_by_id( "submit"   )
+
+# Input text in username and password inputboxes
+username.send_keys( "swatisqa@gmail.com" )
+password.send_keys( "mykewlpass" )
+ # Click on the submit button
+submit.click()
+
+# Create wait obj with a 5 sec timeout, and default 0.5 poll frequency
+wait = WebDriverWait( browser, 5 )
+
+# Test that login was successful by checking if the URL in the browser changed
+#try:
+#page_loaded = wait.until_not(
+#lambda browser: browser.current_url == login_page
+#)
+#except TimeoutException:
+#self.fail( "Loading timeout expired" )
+
+# Assert that the URL is now the correct post-login page
+#    self.assertEqual(
+#    browser.current_url,
+#    correct_page,
+#    msg = "Successful Login"
+#)
